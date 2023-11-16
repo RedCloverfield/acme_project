@@ -17,7 +17,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'birthday.apps.BirthdayConfig',
     'pages.apps.PagesConfig',
-    # подключаем библиотеку Django Bootstrap
     'django_bootstrap5',
 ]
 
