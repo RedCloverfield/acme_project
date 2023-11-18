@@ -6,6 +6,7 @@ app_name = 'birthday'
 
 urlpatterns = [
     path('', views.birthday, name='create'),
-    # Добавим новый маршрут страницы с перечнем дней рождения
-    path('list', views.birthday_list, name='list')
+    path('list', views.birthday_list, name='list'),
+    path('<int:pk>/edit/', views.birthday, name='edit'),
+    path('<int:pk>/delete/', views.delete_birthday, name='delete')
 ]
