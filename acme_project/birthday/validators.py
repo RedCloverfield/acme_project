@@ -9,4 +9,3 @@ def real_age(value: date) -> None:
         raise ValidationError(
             'Ожидается возраст от 1 года до 120 лет'
         )
-    

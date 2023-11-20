@@ -5,7 +5,7 @@
 {% block content %}
   {% with data=form.instance %}
     {% if '/edit/' in request.path %}
-      <h1>Редактировать запись {{ form.instance.pk }}</h1>
+      <h1>Редактировать запись {{ data.pk }}</h1>
     {% elif "/delete/" in request.path %}
       <h1>Удалить запись {{ data.pk }}</h1>
     {% else %}
