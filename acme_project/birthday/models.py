@@ -1,6 +1,5 @@
 from django.db import models
 
-# Импортируем функцию-валидатор.
 from .validators import real_age
 
 class Birthday(models.Model):
@@ -8,8 +7,10 @@ class Birthday(models.Model):
     last_name = models.CharField(
         'Фамилия', blank=True, help_text='Необязательное поле', max_length=20
     )
-    # Валидатор указывается в описании поля.
     birthday = models.DateField('Дата рождения', validators=(real_age,))
+    # Создаем опциональное поле для передачи изображений.
+    image = models.ImageField('Фото', upload_to='birthdays_images', blank=True)
+
 
     class Meta:
         constraints = (

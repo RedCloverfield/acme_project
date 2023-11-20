@@ -3,14 +3,10 @@
 {% load django_bootstrap5 %}
 
 {% block content %}
-  <!-- Если в пути запроса содержится строка /edit/. -->
   {% with data=form.instance %}
     {% if '/edit/' in request.path %}
-      <!-- Вывести заголовок и номер записи. -->
       <h1>Редактировать запись {{ form.instance.pk }}</h1>
-    <!-- Если в пути запроса содержится строка /delete/. -->
     {% elif "/delete/" in request.path %}
-      <!-- Вывести заголовок и номер записи. -->
       <h1>Удалить запись {{ data.pk }}</h1>
     {% else %}
       <h1>Создать запись</h1>
@@ -20,9 +16,8 @@
         Калькулятор ожидания дня рождения
       </div>
       <div class="card-body">
-        <!-- Указываем метод отправки запроса. -->
-        <form method="post">
-          <!-- Добавляем тег csrf_token. Без него POST-запрос будет отклонён. -->
+        <!--Допишем в шаблоне формат данных для передачи из формы-->
+        <form method="post" enctype="multipart/form-data">
           {% csrf_token %}
           {% if not "/delete/" in request.path %}
             {% bootstrap_form form %}
@@ -34,7 +29,6 @@
         </form>
       </div>
     </div>
-    <!-- Получим необходимые поля объекта из объекта form через атрибут instance. -->
     {% if form.is_valid %}
       ID новой записи в БД: {{ data.id }}
       <hr>

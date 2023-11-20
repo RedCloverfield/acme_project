@@ -74,14 +74,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+MEDIA_ROOT = BASE_DIR / 'media'
+
 LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-# Отключаем локализацию форматов, чтобы форма могла отображать даты в
-# "английском" формате. Так, как они хранятся и вызываются из БД.
 USE_L10N = False
 
 USE_TZ = True
