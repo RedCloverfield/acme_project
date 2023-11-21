@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {% for birthday in birthdays %}
+  {% for birthday in page_obj %}
     <div class="row">
       <div class="col-2">
         {% if birthday.image %}
@@ -22,4 +22,8 @@
       {% endif %}
     </div>
   {% endfor %}
+
+  <!-- Подключаем пагинатор -->
+  {% include "includes/paginator.html" %}
+
 {% endblock %} 
