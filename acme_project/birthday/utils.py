@@ -27,9 +27,6 @@ def get_birthday_for_year(birthday, year):
     """
     try:
         calculated_birthday = birthday.replace(year=year)
-    # Если возникла ошибка, значит, день рождения 29 февраля
-    # и подставляемый год не является високосным.
     except ValueError:
-        # В этом случае устанавливаем ДР 1 марта.
         calculated_birthday = date(year=year, month=3, day=1)
     return calculated_birthday
